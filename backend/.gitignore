@@ -19,6 +19,7 @@ venv/
 env/
 # Windows at the root of the drive
 venv/
+.env
 
 # Editors and IDEs
 # VS Code
