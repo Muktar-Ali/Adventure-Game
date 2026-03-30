@@ -14,7 +14,7 @@ wheels/
 *.whl
 
 # Virtual environment
-.venv/
+/.venv
 venv/
 env/
 # Windows at the root of the drive
