@@ -1,0 +1,43 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+*.egg-info/
+.eggs/
+
+# Distribution / Packaging
+dist/
+build/
+wheels/
+*.egg
+*.whl
+
+# Virtual environment
+.venv/
+venv/
+env/
+# Windows at the root of the drive
+venv/
+
+# Editors and IDEs
+# VS Code
+.vscode/
+# PyCharm
+.idea/
+# Spyder
+.spyproject/
+# ipython
+.ipython/
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Miscellaneous
+*.log
+tmp/
+.coverage
+.cache
+.pytest_cache
+
+# Specific directories to ignore
+site-packages/
