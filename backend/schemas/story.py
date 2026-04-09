@@ -13,7 +13,7 @@ class StoryNodeBase(BaseModel):
     is_ending: bool = False
     is_winning_ending: bool = False
 
-class CompleteStoryModeResponse(StoryNodeBase):
+class CompleteStoryNodeResponse(StoryNodeBase):
     id: int
     options: List[StoryOptionsSchema] = []
 
@@ -33,8 +33,8 @@ class CreateStoryRequest(StoryBase):
 class CompleteStoryResponse(StoryBase):
     id: int
     created_at: datetime
-    root_node: CompleteStoryModeResponse
-    all_nodes: Dict[int, CompleteStoryModeResponse]
+    root_node: CompleteStoryNodeResponse
+    all_nodes: Dict[int, CompleteStoryNodeResponse]
     
     class Config:
         from_attributes = True
