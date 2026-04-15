@@ -53,7 +53,7 @@ def create_story(
 
 
 def generate_story_task(job_id: str, theme: str, session_id: str):
-    db = SessionLocal()
+    db = Sessionlocal()
 
     try:
         job = db.query(StoryJob).filter(StoryJob.job_id == job_id).first()
@@ -65,7 +65,7 @@ def generate_story_task(job_id: str, theme: str, session_id: str):
 
             story = {}  # genereate story logic here
 
-            job.story.id = 0  # replace with actual story id
+            job.story_id = 1  # replace with actual story id
             job.status = "completed"
             job.completed_at = datetime.now()
             db.commit()

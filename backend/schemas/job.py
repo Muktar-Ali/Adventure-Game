@@ -10,7 +10,7 @@ class StoryJobBase(BaseModel):
 
 # Type of data API will be receiving from the frontend when creating a new job
 class StoryJobResponse(BaseModel):
-    theme: str
+    job_id: str
     status: str
     created_at: datetime
     story_id: Optional[int] = None
