@@ -1,5 +1,4 @@
 from sqlalchemy.orm import Session
-from core.config import settings
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate, PromptTemplate
 from langchain_core.output_parsers import PydanticOutputParser
@@ -7,6 +6,9 @@ from langchain_core.output_parsers import PydanticOutputParser
 from core.models import StoryLLMResponse, StoryNodeLLM
 from core.prompts import STORY_PROMPT
 from models.story import Story, StoryNode
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class Story_Generator:
@@ -67,7 +69,7 @@ class Story_Generator:
             is_ending=node_data.isEnding
             if hasattr(node_data, "isEnding")
             else node_data["isEnding"],
-            is_winning=node_data.isWinningEnding
+            is_winning_ending=node_data.isWinningEnding
             if hasattr(node_data, "isWinningEnding")
             else node_data["isWinningEnding"],
             options=[],
