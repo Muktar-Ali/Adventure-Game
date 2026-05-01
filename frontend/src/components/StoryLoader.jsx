@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import LoadingStatus from "./LoadingStatus.jsx";
+import StoryGame from "./StoryGame.jsx";
 
 const API_BASE = "/api";
 // loads the story and then redirects to the story page
@@ -11,7 +12,7 @@ function StoryLoader() {
   const navigate = useNavigate();
   const [story, setStory] = useState(null);
   const [loading, setLoading] = useState(true);
-  cosnt[(error, setError)] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     loadStory(id);
@@ -58,7 +59,11 @@ function StoryLoader() {
     );
   }
   if (story) {
-    return <div className="story-loader"></div>;
+    return (
+      <div className="story-loader">
+        <StoryGame story={story} onNewStory={createNewStory} />
+      </div>
+    );
   }
 }
 export default StoryLoader;
