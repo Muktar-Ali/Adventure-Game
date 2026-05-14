@@ -1,3 +1,5 @@
+import os
+
 from sqlalchemy.orm import Session
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate, PromptTemplate
@@ -15,7 +17,19 @@ class Story_Generator:
     @classmethod
     # private method to get the llm instance
     def _get_llm(cls):
-        return ChatOpenAI(model="gpt-4-turbo")
+        serviceurl = os.getenv("CHOREO_OPENAI_CONNECTION_SERVICEURL")
+        consumerkey = os.getenv("CHOREO_OPENAI_CONNECTION_CONSUMERKEY")
+        consumersecret = os.getenv("CHOREO_OPENAI_CONNECTION_CONSUMERSECRET")
+        tokenurl = os.getenv("CHOREO_OPENAI_CONNECTION_TOKENURL")
+        if serviceurl and consumerkey and consumersecret and tokenurl:
+            return ChatOpenAI(
+                model="gpt-4o-mini",
+                service_url=serviceurl,
+                consumer_key=consumerkey,
+                consumer_secret=consumersecret,
+                token_url=tokenurl,
+            )
+        return ChatOpenAI(model="gpt-4o-mini")
 
     @classmethod
     def generate_story(
