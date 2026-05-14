@@ -4,7 +4,7 @@ import axios from "axios";
 import LoadingStatus from "./LoadingStatus.jsx";
 import StoryGame from "./StoryGame.jsx";
 
-const API_BASE = "/api";
+const API_BASE_URL = "/api";
 // loads the story and then redirects to the story page
 
 function StoryLoader() {
