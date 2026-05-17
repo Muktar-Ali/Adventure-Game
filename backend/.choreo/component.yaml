@@ -11,7 +11,7 @@ endpoints:
         - Public
 dependencies:
     connectionReferences:
-    - name: openai-connection
+    - name: openai-connect
       resourceRef: service:/adventure-game/openaiapi/v1/proxy/PROJECT
 
 
