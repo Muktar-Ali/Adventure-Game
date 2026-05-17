@@ -1,14 +1,14 @@
-from typing import List
+from typing import List, Optional
 from pydantic_settings import BaseSettings
 from pydantic import field_validator
 
 
 class Settings(BaseSettings):
-    DATABASE_URL: str
+    DATABASE_URL: Optional[str] = None
     API_PREFIX: str = "/api"
     DEBUG: bool = False
     ALLOWED_ORIGINS: str = ""
-    OPENAI_API_KEY: str
+    OPENAI_API_KEY: Optional[str] = None
 
     @field_validator("ALLOWED_ORIGINS")
     def parse_allowed_origins(cls, v: str) -> List[str]:
