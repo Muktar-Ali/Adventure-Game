@@ -9,6 +9,10 @@ endpoints:
       networkVisibilities:
         - Project
         - Public
+dependencies:
+    connectionReferences:
+    - name: openai-connect
+      resourceRef: service:/adventure-game/openaiapi/v1/proxy/PROJECT
 
 
 
